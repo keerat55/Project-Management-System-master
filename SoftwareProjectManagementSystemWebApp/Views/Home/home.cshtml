@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "home";
+
+}
+
+<h2>home</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KDA PORTAL</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-+xnqFbV7vC4UJmtV7eGt/lLzrj5A/x5zUZsxr2wzjvEbvCg/lPnfhLR+E8Nnj5D5Bu/3qX5w5U8Y5Y5a5w==" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+
+</head>
+<body>
+
+    <div class="topnav" id="topnav">
+
+        <a href="javascript:void(0)"
+           style="font-size: 30px; cursor: pointer;color: white;"><i class="fa fa-fw fa-bar" onclick="toggleNav()">&#9776;</i></a>
+
+        <div class="logo"> PROPERTIES &nbsp; PORTAL</div>
+        <a href="#dashborad" style="font-size: 30px; cursor: pointer;text-decoration: none;"></a>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" id="search" placeholder="Search" aria-label="Search" onchange="openSearch()">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search" onchange="openSearch()">Search</button>
+        </form>
+        <a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+
+    </div>
+    <div class="sidebar" id="sidebar">
+        <p style="text-decoration: none;color: white;text-align: center;font-size:xx-large;">KDA WORLD</p>
+        <a href="dashboard.html" style="text-decoration: none;"><i class="fa fa-fw fa-dashboard"></i>Dashboard</a>
+        <a href="home.html" style="text-decoration: none;"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="about.html" style="text-decoration: none;"><i class="fa fa-fw fa-user"></i> About</a>
+        <a href="properties.html" style="text-decoration: none;"><i class="fa fa-fw fa-heart"></i> Properties</a>
+    </div>
+
+
+
+
+
+    <div class="main" id="main" style="background-color:#60B76C  ;">
+        <h1 class="dashboard-title">DASHBOARD</h1>
+        <div style="display: flex; flex-wrap: wrap;background-color:#60B76C  ;" class="main" id="main">
+
+            <!-----------------------------------MAIN BODY DIV---------------------------------------->
+            <div class="div1">
+                <!--user visit-->
+                <h2><b>Views</b></h2>
+                <div id="visit-count"></div>
+            </div>
+            <!--------------------------------------------------------------------------------->
+            <div class="div2">
+                <!--user click------------------->
+                <h2><b>Click Anywhere</b></h2>
+                <div id="counter-container">
+                    <div id="click-count">0</div>
+                </div>
+                <!---------------------------->
+            </div>
+            <div class="div3" id='calendar'>
+                <!--calender-->
+                <h2><b>Calender</b></h2>
+            </div>
+            <div class="div4 ">
+
+                <div id='clock'></div>
+
+                <div class="clock-hand hour"></div>
+                <div class="clock-hand minute"></div>
+                <div class="clock-hand second"></div>
+                <h2><b>Clock</b></h2>
+            </div>
+            <!------------------------------------------------------------------------>
+            <div class="div5">
+                <!--performance graph-->
+                <div id="chart" style="height: 800px;width: 80%;">
+                    <h2><b>Graph</b></h2>
+                    <canvas id="performance-chart"></canvas>
+
+                </div>
+            </div>
+            <!------------------------------------------------------------------------>
+            <!------------------------------------------------------------------------>
+
+            <div class="div6">
+                <h2><b>Social Media</b></h2>
+                <div class="progress-bar-container" id="progress-bar-1">
+                    <div class="bar1" id="bar-1"></div>
+                    <div class="percentage" id="percentage-1"></div>
+                </div>
+                <h2><b>WebSite Performance</b></h2>
+                <div class="progress-bar-container" id="progress-bar-2">
+                    <div class="bar2" id="bar-2"></div>
+                    <div class="percentage" id="percentage-2"></div>
+                </div>
+
+            </div>
+
+            <!------------------------------------------------------------------------>
+        </div>
+        <!--------------------------------------------------------------------------->
+
+    </div>
+
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+  
+</body>
+</html>
+
+
